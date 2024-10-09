@@ -8,34 +8,23 @@ class Troco {
 
    public Troco(int valor) {
       int count;
-      for(count = 0; valor % 100 != 0; ++count) {
-      }
 
+      for (count = 0; valor >= 100; valor -= 100, count++);
       this.papeisMoeda[5] = new PapelMoeda(100, count);
-
-      for(count = 0; valor % 50 != 0; ++count) {
-      }
-
+      
+      for (count = 0; valor >= 50; valor -= 50, count++);
       this.papeisMoeda[4] = new PapelMoeda(50, count);
-
-      for(count = 0; valor % 20 != 0; ++count) {
-      }
-
+      
+      for (count = 0; valor >= 20; valor -= 20, count++);
       this.papeisMoeda[3] = new PapelMoeda(20, count);
 
-      for(count = 0; valor % 10 != 0; ++count) {
-      }
-
+      for (count = 0; valor >= 10; valor -= 10, count++);
       this.papeisMoeda[2] = new PapelMoeda(10, count);
-
-      for(count = 0; valor % 5 != 0; ++count) {
-      }
-
+      
+      for (count = 0; valor >= 5; valor -= 5, count++);
       this.papeisMoeda[1] = new PapelMoeda(5, count);
-
-      for(count = 0; valor % 2 != 0; ++count) {
-      }
-
+      
+      for (count = 0; valor >= 2; valor -= 2, count++);
       this.papeisMoeda[0] = new PapelMoeda(2, count);
    }
 
