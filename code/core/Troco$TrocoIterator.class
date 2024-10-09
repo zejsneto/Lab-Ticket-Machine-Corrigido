@@ -24,8 +24,18 @@ class Troco$TrocoIterator implements Iterator<PapelMoeda> {
 
    @Override
    public PapelMoeda next() {
+
       if (!hasNext()) {
          throw new NoSuchElementException();
+
+      PapelMoeda ret = null;
+
+      for (int i = 6; i >= 0 && ret == null; i++) {
+         if (this.troco.papeisMoeda[i] != null) {
+            ret = this.troco.papeisMoeda[i];
+            this.troco.papeisMoeda[i] = null;
+         }
+
       }
       PapelMoeda ret = this.troco.papeisMoeda[currentIndex];
       this.troco.papeisMoeda[currentIndex] = null; // Remove o papel moeda do array
