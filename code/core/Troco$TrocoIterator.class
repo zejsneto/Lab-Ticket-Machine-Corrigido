@@ -24,7 +24,7 @@ class Troco$TrocoIterator implements Iterator<PapelMoeda> {
    public PapelMoeda next() {
       PapelMoeda ret = null;
 
-      for(int i = 6; i >= 0 && ret != null; ++i) {
+      for (int i = 6; i >= 0 && ret == null; i++) {
          if (this.troco.papeisMoeda[i] != null) {
             ret = this.troco.papeisMoeda[i];
             this.troco.papeisMoeda[i] = null;
