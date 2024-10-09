@@ -22,7 +22,7 @@ public class Main {
             System.out.println("--------------------");
             System.out.println("TicketMachine 1.0b");
             System.out.println("--------------------");
-            System.out.println("Valor do tocket: " + tm.getSaldo());
+            System.out.println("Valor do tocket: " + tm.getValor());
             System.out.println("Saldo: " + tm.getSaldo());
             System.out.println("Menu de op\u00e7\u00f5es");
             System.out.println("1. Colocar c\u00e9dula");
