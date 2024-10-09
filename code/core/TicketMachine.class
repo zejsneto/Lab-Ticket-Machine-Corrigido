@@ -1,3 +1,6 @@
+// Source code is decompiled from a .class file using FernFlower decompiler.
+package br.calebe.ticketmachine.core;
+
 import br.calebe.ticketmachine.exception.PapelMoedaInvalidaException;
 import br.calebe.ticketmachine.exception.SaldoInsuficienteException;
 import java.util.Iterator;
@@ -15,7 +18,7 @@ public class TicketMachine {
    public void inserir(int quantia) throws PapelMoedaInvalidaException {
       boolean achou = false;
 
-      for (int i = 0; i < this.papelMoeda.length && !achou; i++) {
+      for(int i = 0; i < this.papelMoeda.length && !achou; ++i) {
          if (this.papelMoeda[i] == quantia) {
             achou = true;
          }
@@ -32,21 +35,17 @@ public class TicketMachine {
       return this.saldo;
    }
 
-   public Iterator<PapelMoeda> getTroco() {
-      // Retornar um iterator de Troco correto usando o saldo atual
-      Troco troco = new Troco(saldo);
-      saldo = 0; // Zerar saldo após gerar o troco
-      return troco.getIterator();
+   public Iterator<Integer> getTroco() {
+      return null;
    }
 
    public String imprimir() throws SaldoInsuficienteException {
       if (this.saldo < this.valor) {
          throw new SaldoInsuficienteException();
       } else {
-         this.saldo -= this.valor; // Deduz o valor do bilhete do saldo
          String result = "*****************\n";
-         result += "*** R$ " + this.valor + ",00 ****\n"; // Exibir valor do bilhete, não o saldo
-         result += "*****************\n";
+         result = result + "*** R$ " + this.saldo + ",00 ****\n";
+         result = result + "*****************\n";
          return result;
       }
    }
