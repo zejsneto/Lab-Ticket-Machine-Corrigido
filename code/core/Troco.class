@@ -40,6 +40,6 @@ class Troco {
    }
 
    public Iterator<PapelMoeda> getIterator() {
-      return new TrocoIterator(this, this);
+      return new TrocoIterator(this);
    }
 }
