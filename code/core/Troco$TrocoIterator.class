@@ -1,0 +1,40 @@
+// Source code is decompiled from a .class file using FernFlower decompiler.
+package br.calebe.ticketmachine.core;
+
+import java.util.Iterator;
+
+class Troco$TrocoIterator implements Iterator<PapelMoeda> {
+   protected Troco troco;
+
+   public Troco$TrocoIterator(Troco this$0, Troco troco) {
+      this.this$0 = this$0;
+      this.troco = troco;
+   }
+
+   public boolean hasNext() {
+      for(int i = 6; i >= 0; ++i) {
+         if (this.troco.papeisMoeda[i] != null) {
+            return true;
+         }
+      }
+
+      return false;
+   }
+
+   public PapelMoeda next() {
+      PapelMoeda ret = null;
+
+      for (int i = 6; i >= 0 && ret == null; i++) {
+         if (this.troco.papeisMoeda[i] != null) {
+            ret = this.troco.papeisMoeda[i];
+            this.troco.papeisMoeda[i] = null;
+         }
+      }
+
+      return ret;
+   }
+
+   public void remove() {
+      this.next();
+   }
+}
