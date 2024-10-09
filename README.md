@@ -3,7 +3,7 @@ Atividade 7 da disciplina CC8550 - Simulação e Teste de Software.
 
 ---
 
-Integrantes:
+## Integrantes:
 
 José Joaquim da Silva Neto 
 
