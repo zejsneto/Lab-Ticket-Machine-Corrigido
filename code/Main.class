@@ -63,7 +63,6 @@ public class Main {
                   while(troco.hasNext()) {
                      cedula = (Integer)troco.next();
                      System.out.println("Papel moeda:" + cedula);
-                     System.out.println("Quantidade: " + cedula);
                   }
                   break;
                default:
