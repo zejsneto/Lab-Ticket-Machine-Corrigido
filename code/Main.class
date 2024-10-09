@@ -20,7 +20,7 @@ public class Main {
          while(op != 0) {
             System.out.println();
             System.out.println("--------------------");
-            System.out.println("TocketMachine 1.0b");
+            System.out.println("TicketMachine 1.0b");
             System.out.println("--------------------");
             System.out.println("Valor do tocket: " + tm.getSaldo());
             System.out.println("Saldo: " + tm.getSaldo());
