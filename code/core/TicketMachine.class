@@ -44,11 +44,18 @@ public class TicketMachine {
    public String imprimir() throws SaldoInsuficienteException {
       if (this.saldo < this.valor) {
          throw new SaldoInsuficienteException();
-      } else {
+      } else {       
          this.saldo -= this.valor; // Deduz o valor do bilhete do saldo
+         
          String result = "*****************\n";
          result += "*** R$ " + this.valor + ",00 ****\n"; // Exibir valor do bilhete, não o saldo
          result += "*****************\n";
+         
+         Troco troco = new Troco(saldo);
+         TrocoIterator trocoIterator = troco.getIterator();
+
+         saldo = 0;
+
          return result;
       }
    }
