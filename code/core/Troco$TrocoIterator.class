@@ -1,40 +1,40 @@
-// Source code is decompiled from a .class file using FernFlower decompiler.
 package br.calebe.ticketmachine.core;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 class Troco$TrocoIterator implements Iterator<PapelMoeda> {
    protected Troco troco;
+   private int currentIndex = 6;
 
    public Troco$TrocoIterator(Troco this$0, Troco troco) {
-      this.this$0 = this$0;
       this.troco = troco;
    }
 
+   @Override
    public boolean hasNext() {
-      for(int i = 6; i >= 0; ++i) {
+      for (int i = currentIndex; i >= 0; i--) {
          if (this.troco.papeisMoeda[i] != null) {
+            currentIndex = i; // Atualiza o índice para o próximo elemento
             return true;
          }
       }
-
       return false;
    }
 
+   @Override
    public PapelMoeda next() {
-      PapelMoeda ret = null;
-
-      for(int i = 6; i >= 0 && ret != null; ++i) {
-         if (this.troco.papeisMoeda[i] != null) {
-            ret = this.troco.papeisMoeda[i];
-            this.troco.papeisMoeda[i] = null;
-         }
+      if (!hasNext()) {
+         throw new NoSuchElementException();
       }
-
+      PapelMoeda ret = this.troco.papeisMoeda[currentIndex];
+      this.troco.papeisMoeda[currentIndex] = null; // Remove o papel moeda do array
+      currentIndex--; // Move para o próximo índice para verificar o próximo item
       return ret;
    }
 
+   @Override
    public void remove() {
-      this.next();
+      throw new UnsupportedOperationException("Remove operation is not supported by Troco$TrocoIterator.");
    }
 }
